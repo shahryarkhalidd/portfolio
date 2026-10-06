@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shahryar Khalid | Data &amp; AI Engineer</title>
+  <meta name="description" content="Shahryar Khalid, Data & AI Engineer building real-time streaming pipelines, cloud data platforms and production LLM workflows." />
+  <meta name="theme-color" content="#06060a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306060a'/%3E%3Ctext x='29' y='42' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='26' fill='%23eeece6' text-anchor='middle'%3ESK%3C/text%3E%3Ccircle cx='52' cy='38' r='5' fill='%23b4ff39'/%3E%3C/svg%3E" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__log mono">
+        <p><span class="ok">→</span> connecting kafka://brokers:9092 <b>ok</b></p>
+        <p><span class="ok">→</span> debezium.connector[sqlserver] <b>running</b></p>
+        <p><span class="ok">→</span> warming lambda containers <b>ok</b></p>
+        <p><span class="ok">→</span> SELECT * FROM portfolio <b>1 row</b></p>
+      </div>
+      <div class="preloader__count"><span class="preloader__num">000</span><span class="preloader__pct">%</span></div>
+      <div class="preloader__bar"><span></span></div>
+    </div>
+    <div class="preloader__curtain preloader__curtain--a"></div>
+    <div class="preloader__curtain preloader__curtain--b"></div>
+  </div>
+
+  <!-- ============ CURSOR ============ -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><div class="cursor__ring-inner"><span class="cursor__label"></span></div></div>
+  </div>
+
+  <canvas id="field" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-cursor="Top" aria-label="Back to top">
+      <span class="nav__logo-mark">SK</span><span class="nav__logo-dot"></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about" data-scramble>About</a>
+      <a href="#experience" data-scramble>Experience</a>
+      <a href="#work" data-scramble>Work</a>
+      <a href="#stack" data-scramble>Stack</a>
+      <a href="#contact" data-scramble>Contact</a>
+    </nav>
+    <div class="nav__status mono"><span class="pulse"></span>Lahore · <span data-clock>--:--:--</span> PKT</div>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" aria-hidden="true">
+    <nav class="menu__links">
+      <a href="#about"><span class="mono">01</span>About</a>
+      <a href="#experience"><span class="mono">02</span>Experience</a>
+      <a href="#work"><span class="mono">03</span>Work</a>
+      <a href="#stack"><span class="mono">04</span>Stack</a>
+      <a href="#contact"><span class="mono">05</span>Contact</a>
+    </nav>
+    <div class="menu__foot mono">shahryarkhalid692@gmail.com</div>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" data-shape="sphere">
+      <div class="hero__inner">
+        <div class="hero__top mono" data-hero-fade>
+          <span>( Portfolio ©2026 )</span>
+          <span class="hide-sm">31.5204° N, 74.3587° E</span>
+          <span>Lahore, Pakistan</span>
+        </div>
+
+        <div class="hero__mid">
+          <div class="hero__copy">
+            <p class="hero__role mono" data-hero-fade>
+              <span class="hero__role-tag">Data &amp; AI Engineer</span>
+              <span class="hero__role-sep">/</span>
+              <span class="scramble" data-roles='["Real-time Streaming","Change Data Capture","Cloud Data Platforms","Production LLM Workflows","RAG Architectures","Warehouse Migrations"]'>Real-time Streaming</span>
+            </p>
+            <p class="hero__lead" data-hero-fade>
+              I build systems that move data at the speed it&rsquo;s created, from <em>CDC streams</em> and <em>cloud warehouses</em> to <em>production LLM pipelines</em>.
+            </p>
+            <div class="hero__cta" data-hero-fade>
+              <a href="#work" class="btn btn--primary" data-magnetic data-cursor="Explore"><span>See the work</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a href="Shahryar_Khalid_Data_Engineer_Resume.pdf" class="btn btn--ghost" download data-magnetic data-cursor="PDF"><span>Résumé</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></a>
+            </div>
+          </div>
+
+          <aside class="feed" data-hero-fade aria-label="Decorative simulated pipeline monitor">
+            <div class="feed__head mono"><span class="pulse"></span>stream.monitor <em>(simulated)</em></div>
+            <div class="feed__row"><span class="mono">throughput</span><b><span data-feed="tp">12,480</span><small> ev/s</small></b></div>
+            <div class="feed__row"><span class="mono">e2e latency</span><b><span data-feed="lat">42</span><small> ms</small></b></div>
+            <div class="feed__row"><span class="mono">consumer lag</span><b><span data-feed="lag">0</span><small> msgs</small></b></div>
+            <div class="feed__spark"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polyline points="" /></svg></div>
+          </aside>
+        </div>
+
+        <h1 class="hero__title" aria-label="Shahryar Khalid">
+          <span class="line line--1" data-split-chars>SHAHRYAR</span>
+          <span class="line line--2" data-split-chars>KHALID<sup class="hero__sup mono">®</sup></span>
+        </h1>
+
+        <div class="hero__badge" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+            <text><textPath href="#circ" textLength="488" lengthAdjust="spacing">DATA &amp; AI ENGINEER ✦ STREAMING ✦ LAKEHOUSE ✦ LLM ✦ </textPath></text>
+          </svg>
+          <span class="hero__badge-arrow">↓</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-label="Technologies">
+      <div class="marquee__row" data-dir="1">
+        <div class="marquee__track">
+          <span>Apache Kafka</span><i>✦</i><span>Snowflake</span><i>✦</i><span>Amazon Bedrock</span><i>✦</i><span>Debezium</span><i>✦</i><span>Redshift</span><i>✦</i><span>BigQuery</span><i>✦</i><span>Airflow</span><i>✦</i><span>dbt</span><i>✦</i><span>Databricks</span><i>✦</i><span>Terraform</span><i>✦</i>
+        </div>
+      </div>
+      <div class="marquee__row marquee__row--outline" data-dir="-1">
+        <div class="marquee__track">
+          <span>PySpark</span><i>●</i><span>Step Functions</span><i>●</i><span>RAG</span><i>●</i><span>LangChain</span><i>●</i><span>AWS Glue</span><i>●</i><span>Athena</span><i>●</i><span>DynamoDB</span><i>●</i><span>Docker</span><i>●</i><span>LlamaIndex</span><i>●</i><span>Power BI</span><i>●</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="about" data-shape="helix">
+      <div class="eyebrow mono" data-reveal><span>01</span> About: the short version</div>
+      <p class="about__text" data-words>
+        I&rsquo;m a Data &amp; AI Engineer specializing in <em>real-time streaming</em> and <em>Change Data Capture</em>, cloud data platforms like <em>Snowflake, Redshift</em> and <em>BigQuery</em>, and <em>production LLM workflows</em> on Amazon Bedrock. I turn high-velocity, messy data into reliable systems: ETL/ELT pipelines, AWS data lakes and large-scale warehouse migrations on Terraform-managed, security-hardened infrastructure.
+      </p>
+    </section>
+
+    <!-- ============ EXPERIENCE (horizontal pipeline) ============ -->
+    <section class="pipeline" id="experience" data-shape="knot">
+      <div class="pipeline__pin">
+        <div class="pipeline__track">
+          <div class="pipeline__rail" aria-hidden="true">
+            <span class="pipeline__rail-fill"></span>
+            <i class="pkt"></i><i class="pkt"></i><i class="pkt"></i><i class="pkt"></i><i class="pkt"></i>
+          </div>
+
+          <article class="panel panel--intro">
+            <div class="eyebrow mono"><span>02</span> Experience</div>
+            <h2 class="h-xl" data-split-chars-scroll>The pipeline</h2>
+            <h2 class="h-xl h-xl--outline" data-split-chars-scroll>so far.</h2>
+            <p class="panel__lead">Every role has been a stage: ingest, harden, then make it intelligent. Keep scrolling. The data flows left&nbsp;to&nbsp;right.</p>
+            <div class="panel__hint mono"><span class="panel__hint-line"></span>scroll</div>
+          </article>
+
+          <article class="panel job">
+            <div class="job__node" aria-hidden="true"><span></span></div>
+            <div class="job__stage mono">Stage 01 · <b>Ingest</b></div>
+            <div class="job__year">2024</div>
+            <h3 class="job__role">Data Engineer</h3>
+            <p class="job__co mono">Systems Limited <span>·</span> Aug 2024 – Oct 2024</p>
+            <ul class="job__list">
+              <li>Delivered a real-time CDC pipeline (<b>Debezium → Kafka → Snowflake Kafka Connector</b>) replicating SQL Server transactions into Snowflake with sub-minute end-to-end latency.</li>
+              <li>Built Azure Data Factory ETL across Blob Storage and Azure SQL, implementing <b>Type 2 SCD</b> for historical employee records feeding Power BI dashboards.</li>
+            </ul>
+            <div class="tags"><span>Kafka</span><span>Debezium</span><span>Snowflake</span><span>ADF</span><span>SCD2</span><span>Power BI</span></div>
+          </article>
+
+          <article class="panel job">
+            <div class="job__node" aria-hidden="true"><span></span></div>
+            <div class="job__stage mono">Stage 02 · <b>Harden</b></div>
+            <div class="job__year">2025</div>
+            <h3 class="job__role">Associate Software Engineer</h3>
+            <p class="job__co mono">ClickTraces <span>·</span> Oct 2024 – Sep 2025</p>
+            <ul class="job__list">
+              <li>Migrated a client&rsquo;s on-prem SQL Server 2016 to <b>SQL Server 2022 on Amazon EC2</b> with automated backups and disaster recovery.</li>
+              <li>Automated VPC networking, peering and isolated dev/contractor environments with <b>Terraform + Terratest</b>: repeatable, versioned, tested.</li>
+              <li>Implemented security governance across <b>4+ AWS accounts</b>: SCPs, GuardDuty, Security Hub, CloudTrail, IAM Identity Center and SNS alerting.</li>
+              <li>Authored incident-response playbooks and supported an AWS Well-Architected review and remediation plan.</li>
+            </ul>
+            <div class="tags"><span>Terraform</span><span>Terratest</span><span>EC2</span><span>SQL Server</span><span>GuardDuty</span><span>IAM</span></div>
+          </article>
+
+          <article class="panel job job--current">
+            <div class="job__node" aria-hidden="true"><span></span></div>
+            <div class="job__stage mono">Stage 03 · <b>Intelligence</b> <em class="live"><span class="pulse"></span>live</em></div>
+            <div class="job__year">Now</div>
+            <h3 class="job__role">Data &amp; AI Engineer</h3>
+            <p class="job__co mono">Devsinc <span>·</span> Nov 2025 – Present</p>
+            <ul class="job__list">
+              <li>AI moderation pipeline on <b>Step Functions + containerized Lambda</b>: first-pass review of 10K+ images &amp; videos daily with Bedrock multimodal models, FFmpeg and K-of-N verdicts.</li>
+              <li>Supporting data lake on S3 + DynamoDB, cataloged in Glue, queried via Athena, served through API Gateway REST APIs.</li>
+              <li>End-to-end <b>RAG system</b> over 500+ Notion docs with S3 + Amazon Q, delivering self-serve answers for the sales team.</li>
+              <li>Telemetry ingestion + a hybrid deterministic / <b>XGBoost</b> model improving cloud-traffic forecasting.</li>
+              <li>Jointly executed a <b>90 TB</b> healthcare warehouse migration from BigQuery to Redshift.</li>
+            </ul>
+            <div class="tags"><span>Bedrock</span><span>Step Functions</span><span>Amazon Q</span><span>Redshift</span><span>Athena</span><span>XGBoost</span></div>
+          </article>
+
+          <article class="panel panel--end">
+            <div class="job__node job__node--ghost" aria-hidden="true"><span></span></div>
+            <div class="job__stage mono">Stage 04 · <b>?</b></div>
+            <h3 class="h-lg">Your data,<br /><span class="grad-text">next in line.</span></h3>
+            <a href="#contact" class="btn btn--primary" data-magnetic data-cursor="Say hi"><span>Start a conversation</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="work section" id="work" data-shape="wave">
+      <header class="work__head">
+        <div class="eyebrow mono" data-reveal><span>03</span> Selected systems</div>
+        <h2 class="h-xl" data-split-chars-scroll>Things I&rsquo;ve</h2>
+        <h2 class="h-xl"><span class="h-xl--outline" data-split-chars-scroll>shipped</span> <span class="grad-text" data-split-chars-scroll>to prod.</span></h2>
+      </header>
+
+      <div class="cards">
+        <article class="card" style="--hue: 150">
+          <div class="card__inner" data-spot>
+            <div class="card__body">
+              <div class="card__meta mono"><span>01</span><span>Devsinc · AWS</span></div>
+              <h3 class="card__title">AI Content Moderation Pipeline</h3>
+              <p class="card__desc">Automated first-pass review of user media. Videos are split into frames with FFmpeg, scored by Bedrock multimodal models, and resolved with K-of-N voting, orchestrated by Step Functions over containerized Lambda.</p>
+              <div class="tags"><span>Step Functions</span><span>Lambda (Docker)</span><span>Bedrock</span><span>FFmpeg</span><span>S3</span><span>DynamoDB</span></div>
+              <div class="card__metric"><b>10K+</b><span class="mono">media items / day</span></div>
+            </div>
+            <div class="card__visual">
+              <div class="flow">
+                <div class="flow__node">Upload → S3</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">FFmpeg frames</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node flow__node--multi">Bedrock <small>× N</small></div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node flow__node--end">K-of-N verdict</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="--hue: 265">
+          <div class="card__inner" data-spot>
+            <div class="card__body">
+              <div class="card__meta mono"><span>02</span><span>Devsinc · Applied AI</span></div>
+              <h3 class="card__title">Enterprise RAG Assistant</h3>
+              <p class="card__desc">An end-to-end retrieval-augmented system that ingests internal Notion knowledge into S3 and Amazon Q, giving the sales team self-serve answers on projects, tasks and opportunities, with engineered prompts and evaluated answer quality.</p>
+              <div class="tags"><span>RAG</span><span>Amazon Q</span><span>S3</span><span>Prompt Engineering</span><span>Evaluation</span></div>
+              <div class="card__metric"><b>500+</b><span class="mono">documents indexed</span></div>
+            </div>
+            <div class="card__visual">
+              <div class="flow">
+                <div class="flow__node">Notion workspace</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">S3 ingestion</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">Amazon Q index</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node flow__node--end">Answers for sales</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="--hue: 200">
+          <div class="card__inner" data-spot>
+            <div class="card__body">
+              <div class="card__meta mono"><span>03</span><span>Devsinc · Migration</span></div>
+              <h3 class="card__title">90 TB Healthcare Warehouse Migration</h3>
+              <p class="card__desc">Jointly moved a healthcare data warehouse from Google BigQuery to Amazon Redshift using AWS SCT and data extraction agents, with S3 staging, VPC/VPN connectivity, multi-environment Redshift clusters and staged validation before cut-over.</p>
+              <div class="tags"><span>BigQuery</span><span>Redshift</span><span>AWS SCT</span><span>S3</span><span>VPC / VPN</span></div>
+              <div class="card__metric"><b>90 TB</b><span class="mono">moved &amp; validated</span></div>
+            </div>
+            <div class="card__visual">
+              <div class="flow">
+                <div class="flow__node">BigQuery</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">SCT + extraction agents</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">S3 staging</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node flow__node--end">Redshift (prod)</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="--hue: 90">
+          <div class="card__inner" data-spot>
+            <div class="card__body">
+              <div class="card__meta mono"><span>04</span><span>Systems Limited · Streaming</span></div>
+              <h3 class="card__title">Real-time CDC Streaming</h3>
+              <p class="card__desc">Change Data Capture from SQL Server with Debezium, streamed through Apache Kafka and landed in Snowflake via the Snowflake Kafka Connector, with every committed transaction replicated in under a minute.</p>
+              <div class="tags"><span>Debezium</span><span>Apache Kafka</span><span>Kafka Connect</span><span>Snowflake</span></div>
+              <div class="card__metric"><b>&lt;1 min</b><span class="mono">end-to-end latency</span></div>
+            </div>
+            <div class="card__visual">
+              <div class="flow">
+                <div class="flow__node">SQL Server</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">Debezium CDC</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">Kafka topics</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node flow__node--end">Snowflake</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="--hue: 30">
+          <div class="card__inner" data-spot>
+            <div class="card__body">
+              <div class="card__meta mono"><span>05</span><span>Devsinc · ML</span></div>
+              <h3 class="card__title">Telemetry Activity Forecasting</h3>
+              <p class="card__desc">S3-based vehicle telemetry ingestion and feature set. Diagnosed signal-logging discrepancies, then built a hybrid deterministic + XGBoost model predicting daily telemetry activity to sharpen cloud-traffic forecasts.</p>
+              <div class="tags"><span>Python</span><span>Pandas</span><span>XGBoost</span><span>S3</span><span>Feature Engineering</span></div>
+              <div class="card__metric"><b>Hybrid</b><span class="mono">rules + gradient boosting</span></div>
+            </div>
+            <div class="card__visual">
+              <div class="flow">
+                <div class="flow__node">Vehicle telemetry</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">S3 ingestion</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">Features</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node flow__node--end">Rules + XGBoost</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" style="--hue: 340">
+          <div class="card__inner" data-spot>
+            <div class="card__body">
+              <div class="card__meta mono"><span>06</span><span>ClickTraces · Cloud</span></div>
+              <h3 class="card__title">Multi-account AWS Security Governance</h3>
+              <p class="card__desc">Guardrails across 4+ AWS accounts: Service Control Policies, GuardDuty, Security Hub, CloudTrail and IAM Identity Center least-privilege access, with SNS alerting on findings and Terraform-provisioned, Terratest-verified networking.</p>
+              <div class="tags"><span>SCPs</span><span>GuardDuty</span><span>Security Hub</span><span>CloudTrail</span><span>Terraform</span></div>
+              <div class="card__metric"><b>4+</b><span class="mono">AWS accounts secured</span></div>
+            </div>
+            <div class="card__visual">
+              <div class="flow">
+                <div class="flow__node">CloudTrail events</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">GuardDuty</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node">Security Hub</div><div class="flow__link"><i></i><i></i></div>
+                <div class="flow__node flow__node--end">SNS alert</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ STACK ============ -->
+    <section class="stack section" id="stack" data-shape="cube">
+      <header class="stack__head">
+        <div class="eyebrow mono" data-reveal><span>04</span> Toolkit</div>
+        <h2 class="h-xl" data-split-chars-scroll>The stack.</h2>
+      </header>
+
+      <div class="stack__rows">
+        <div class="srow">
+          <span class="srow__line"></span>
+          <div class="srow__cat"><span class="mono">01</span><h3>Streaming &amp; Pipelines</h3></div>
+          <ul class="chips"><li>Apache Kafka</li><li>Kafka Connect</li><li>Debezium (CDC)</li><li>Apache Airflow</li><li>dbt</li><li>Databricks</li><li>Azure Data Factory</li><li>ETL / ELT</li><li>Data Modeling</li><li>SCD</li></ul>
+        </div>
+        <div class="srow">
+          <span class="srow__line"></span>
+          <div class="srow__cat"><span class="mono">02</span><h3>Warehouses &amp; Storage</h3></div>
+          <ul class="chips"><li>Snowflake</li><li>Amazon Redshift</li><li>Google BigQuery</li><li>PostgreSQL</li><li>SQL Server</li><li>Azure SQL</li><li>Azure Synapse</li><li>Amazon S3</li><li>DynamoDB</li><li>MongoDB</li></ul>
+        </div>
+        <div class="srow">
+          <span class="srow__line"></span>
+          <div class="srow__cat"><span class="mono">03</span><h3>Applied AI &amp; LLMs</h3></div>
+          <ul class="chips"><li>Amazon Bedrock</li><li>Amazon Q</li><li>RAG</li><li>Vector Databases</li><li>LangChain</li><li>LlamaIndex</li><li>Prompt Engineering</li><li>Multimodal AI</li><li>Model Evaluation</li><li>Machine Learning</li></ul>
+        </div>
+        <div class="srow">
+          <span class="srow__line"></span>
+          <div class="srow__cat"><span class="mono">04</span><h3>Cloud &amp; DevOps</h3></div>
+          <ul class="chips"><li>Lambda</li><li>Step Functions</li><li>Glue</li><li>Athena</li><li>API Gateway</li><li>EC2</li><li>IAM · VPC</li><li>GuardDuty</li><li>Security Hub</li><li>Terraform</li><li>Terratest</li><li>Docker</li><li>CI/CD</li></ul>
+        </div>
+        <div class="srow">
+          <span class="srow__line"></span>
+          <div class="srow__cat"><span class="mono">05</span><h3>Languages &amp; BI</h3></div>
+          <ul class="chips"><li>Python</li><li>Pandas</li><li>PySpark</li><li>SQL</li><li>Bash</li><li>Git</li><li>Power BI</li><li>Tableau</li></ul>
+        </div>
+        <span class="srow__line srow__line--last"></span>
+      </div>
+    </section>
+
+    <!-- ============ CREDENTIALS ============ -->
+    <section class="creds section" data-shape="cube">
+      <div class="eyebrow mono" data-reveal><span>05</span> Education &amp; certificates</div>
+      <div class="creds__grid">
+        <article class="edu" data-tilt data-reveal>
+          <div class="edu__seal" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+              <defs><path id="circ2" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0" /></defs>
+              <text><textPath href="#circ2" textLength="462" lengthAdjust="spacing">BS COMPUTER SCIENCE ✦ CLASS OF 2025 ✦ </textPath></text>
+            </svg>
+            <span>CS</span>
+          </div>
+          <p class="mono edu__years">Oct 2021 – Jul 2025</p>
+          <h3>Bachelor of Science in Computer Science</h3>
+          <p class="edu__school">University of Central Punjab, Lahore</p>
+        </article>
+
+        <div class="certs">
+          <article class="cert" data-reveal>
+            <span class="cert__issuer mono">Amazon Web Services</span>
+            <h4>AWS Academy Graduate: Data Engineering</h4>
+            <span class="cert__arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="cert" data-reveal>
+            <span class="cert__issuer mono">Amazon Web Services</span>
+            <h4>AWS Academy Graduate: Cloud Foundations</h4>
+            <span class="cert__arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="cert" data-reveal>
+            <span class="cert__issuer mono">Google</span>
+            <h4>Advanced Data Analytics Professional Certificate</h4>
+            <span class="cert__arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact section" id="contact" data-shape="galaxy">
+      <div class="contact__portal" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="eyebrow mono" data-reveal><span>06</span> Contact</div>
+      <h2 class="contact__title">
+        <span class="contact__line"><span>Got data that</span></span>
+        <span class="contact__line"><span class="h-xl--outline">needs to</span> <span class="grad-text">move?</span></span>
+      </h2>
+
+      <div class="contact__actions">
+        <a class="contact__email" href="mailto:shahryarkhalid692@gmail.com" data-magnetic="0.2" data-cursor="Write">
+          <span class="contact__email-text">shahryarkhalid692@gmail.com</span>
+          <span class="contact__email-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
+        <button class="copy mono" type="button" data-copy="shahryarkhalid692@gmail.com" data-cursor="Copy">copy email</button>
+      </div>
+
+      <div class="contact__links">
+        <a href="https://linkedin.com/in/shahryarkhalid" target="_blank" rel="noopener" data-magnetic data-cursor="Open"><span class="mono">01</span>LinkedIn<i>↗</i></a>
+        <a href="https://github.com/shahryarkhalidd" target="_blank" rel="noopener" data-magnetic data-cursor="Open"><span class="mono">02</span>GitHub<i>↗</i></a>
+        <a href="Shahryar_Khalid_Data_Engineer_Resume.pdf" download data-magnetic data-cursor="PDF"><span class="mono">03</span>Résumé<i>↓</i></a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__big" aria-hidden="true">SHAHRYAR</div>
+      <div class="footer__row mono">
+        <span>© 2026 Shahryar Khalid</span>
+        <span>Lahore · <span data-clock>--:--:--</span></span>
+        <a href="#top" data-cursor="Up">Back to top ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast mono" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="field.js"></script>
+  <script src="fx.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
