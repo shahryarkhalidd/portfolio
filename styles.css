@@ -253,7 +253,7 @@ body.cursor-down .cursor__ring-inner { transform: scale(0.8); }
 .menu__links { display: grid; gap: 4px; }
 .menu__links a {
   display: flex; align-items: baseline; gap: 16px;
-  font-family: var(--display); font-weight: 800; font-size: clamp(2.6rem, 12vw, 5rem); line-height: 1.05; letter-spacing: -0.04em; text-transform: uppercase;
+  font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 7.2vw, 5rem); line-height: 1.05; letter-spacing: -0.04em; text-transform: uppercase;
   transform: translateY(40px); opacity: 0; transition: transform 0.8s var(--ease), opacity 0.8s;
 }
 .menu__links a span { color: var(--lime); }
@@ -641,7 +641,7 @@ body.cursor-down .cursor__ring-inner { transform: scale(0.8); }
 
 .footer { position: relative; padding: 40px var(--gutter) 30px; border-top: 1px solid var(--line); overflow: hidden; background: rgba(6,6,10,0.7); }
 .footer__big {
-  font-family: var(--display); font-weight: 800; font-size: 10.6vw; line-height: 0.8; letter-spacing: -0.06em;
+  font-family: var(--display); font-weight: 800; font-size: calc((100vw - 2 * var(--gutter)) * 0.1); line-height: 0.8; letter-spacing: -0.06em;
   white-space: nowrap; text-align: center;
   background: linear-gradient(180deg, rgba(238,236,230,0.16), rgba(238,236,230,0));
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -694,8 +694,11 @@ body.cursor-down .cursor__ring-inner { transform: scale(0.8); }
 }
 @media (max-width: 600px) {
   .contact__links { grid-template-columns: 1fr; }
-  .contact__email { padding: 14px 14px 14px 22px; gap: 12px; font-size: 1rem; }
-  .contact__email-icon { width: 42px; height: 42px; }
+  .contact__email { max-width: 100%; padding: 12px 12px 12px 18px; gap: 10px; font-size: min(1rem, 4vw); }
+  .contact__email-icon { width: 36px; height: 36px; }
+  .contact__email-icon svg { width: 18px; height: 18px; }
+  .feed { display: none; }
+  .hero__mid { padding: 28px 0; }
   .cert { padding: 24px 70px 24px 22px; }
   .cert__arrow { right: 18px; }
   .hero__top span:first-child { display: none; }
