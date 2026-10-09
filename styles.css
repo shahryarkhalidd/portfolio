@@ -106,6 +106,8 @@ svg { display: block; }
 }
 .word.is-decoding .word__txt { visibility: hidden; }
 .word.is-decoding .word__bin { visibility: visible; }
+/* not reached yet: dim static binary, so the real text can't be read ahead */
+.word.is-encoded .word__bin { color: var(--muted); text-shadow: none; }
 
 /* ================= Background layers ================= */
 #field {

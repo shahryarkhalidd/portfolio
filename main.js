@@ -410,8 +410,17 @@
       bin.className = 'word__bin'; bin.setAttribute('aria-hidden', 'true');
       w.textContent = '';
       w.append(txt, bin);
-      return { el: w, text, bin, state: -1 };
+      return { el: w, text, txt, bin, fit: 1, state: -1 };
     });
+    // digits are wider than most letters: scale each word's binary so it fits the word's width
+    const fitBinary = () => words.forEach((w) => {
+      const prev = w.bin.textContent;
+      w.bin.textContent = '0'.repeat(w.text.length);
+      const bw = w.bin.offsetWidth, tw = w.txt.offsetWidth;
+      w.bin.textContent = prev;
+      w.fit = bw ? Math.min(1, tw / bw) : 1;
+    });
+    const binLen = (w, n) => Math.max(1, Math.floor(n * w.fit));
     const WINDOW = 6;
     const noise = (n) => { let o = ''; for (let k = 0; k < n; k++) o += Math.random() < 0.5 ? '0' : '1'; return o; };
     const decode = (p) => {
@@ -419,27 +428,30 @@
       words.forEach((w, i) => {
         const local = gsap.utils.clamp(0, 1, (head - i) / WINDOW);
         if (local <= 0) {
-          if (w.state !== 0) { w.state = 0; w.el.classList.remove('is-decoding'); w.el.style.opacity = 0.12; }
+          if (w.state !== 0) { w.state = 0; w.bin.textContent = noise(binLen(w, w.text.length)); w.el.classList.add('is-decoding', 'is-encoded'); w.el.style.opacity = 0.22; }
         } else if (local >= 1) {
-          if (w.state !== 2) { w.state = 2; w.el.classList.remove('is-decoding'); w.el.style.opacity = 1; }
+          if (w.state !== 2) { w.state = 2; w.el.classList.remove('is-decoding', 'is-encoded'); w.el.style.opacity = 1; }
         } else {
           w.state = 1;
           const shown = Math.floor(local * w.text.length);
-          w.bin.textContent = w.text.slice(0, shown) + noise(w.text.length - shown);
+          w.bin.textContent = w.text.slice(0, shown) + (shown < w.text.length ? noise(binLen(w, w.text.length - shown)) : '');
           w.el.classList.add('is-decoding');
+          w.el.classList.remove('is-encoded');
           w.el.style.opacity = 0.4 + local * 0.6;
         }
       });
     };
+    fitBinary();
     if (reduced) decode(1);
     else {
       decode(0);
-      ScrollTrigger.create({
+      const aboutST = ScrollTrigger.create({
         trigger: '.about__text', start: 'top 80%', end: 'bottom 45%',
         onUpdate: (self) => decode(self.progress),
         onLeave: () => decode(1),
         onLeaveBack: () => decode(0),
       });
+      document.fonts.ready.then(() => { fitBinary(); words.forEach((w) => { w.state = -1; }); decode(aboutST.progress); });
     }
 
     const mm = gsap.matchMedia();
